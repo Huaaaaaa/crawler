@@ -11,4 +11,6 @@ public interface CrawlerMovieService {
     List<CrawlerMovie> getAllMovies();
 
     List<CrawlerMovie> crawlMovies(String url, Map<String, Object> paramMap);
+
+    int createMovie(List<CrawlerMovie> crawlerMovies);
 }

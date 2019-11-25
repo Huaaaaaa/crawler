@@ -43,4 +43,18 @@ public class CrawlerMovieServiceImpl implements CrawlerMovieService {
         logger.info("crawlMovies end:jsonObject={}", jsonObject);
         return crawlerMovieList;
     }
+
+    @Override
+    public int createMovie(List<CrawlerMovie> crawlerMovies) {
+        logger.info("crawlMovies begin:crawlerMovies={}", crawlerMovies);
+        int total = 0;
+        if (crawlerMovies != null && crawlerMovies.size() > 0) {
+            List<CrawlerMovie> res = crawlerMovieDao.saveAll(crawlerMovies);
+            if (res != null) {
+                total = res.size();
+            }
+        }
+        logger.info("crawlMovies end:total={}", total);
+        return total;
+    }
 }
